@@ -1,0 +1,107 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.neversitup.coindesk'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.neversitup.coindesk"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    // AndroidX Test Library
+//    androidTestImplementation 'androidx.test:core:1.4.0'
+//    androidTestImplementation 'androidx.test:runner:1.4.0'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'junit:junit:4.12'
+//    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+//    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+//    // Add MockK and AndroidJUnit4 dependencies
+     testImplementation 'io.mockk:mockk:1.12.0'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+////    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+//    // AndroidX Test Library
+//    androidTestImplementation 'androidx.test:core:1.4.0'
+//    androidTestImplementation 'androidx.test:runner:1.4.0'
+//
+//    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+//    androidTestImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    // Add runBlockingTest dependency
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2'
+    
+    // Other dependencies
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.0.0-beta01'
+
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$compose_version"
+
+    // Koin
+    implementation 'io.insert-koin:koin-android:2.2.2'
+    implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.2'
+
+    // https://mvnrepository.com/artifact/javax.inject/javax.inject
+    implementation 'javax.inject:javax.inject:1'
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+}
